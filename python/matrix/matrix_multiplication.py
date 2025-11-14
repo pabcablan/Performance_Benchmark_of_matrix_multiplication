@@ -18,8 +18,9 @@ def matrix_multiply_row_oriented(A, B):
 
     for i in range(n):
         for k in range(n):
+            aik = A[i][k]
             for j in range(n):
-                C[i][j] += A[i][k] * B[k][j]
+                C[i][j] += aik * B[k][j]
     return C
 
 
@@ -37,8 +38,9 @@ def matrix_multiply_tiled(A, B, block_size=32):
 
                 for i in range(i_block, i_limit):
                     for k in range(k_block, k_limit):
+                        aik = A[i][k]
                         for j in range(j_block, j_limit):
-                            C[i][j] += A[i][k] * B[k][j]
+                            C[i][j] += aik * B[k][j]
     return C
 
 def strassen(A, B):
