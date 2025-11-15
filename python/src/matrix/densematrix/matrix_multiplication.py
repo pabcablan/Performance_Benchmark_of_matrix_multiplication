@@ -1,4 +1,4 @@
-from python.matrix.matrix_utils import subtract_matrices, add_matrices
+from python.src.matrix.matrix_utils import subtract_matrices, add_matrices
 
 
 def matrix_multiply_standard(A, B):

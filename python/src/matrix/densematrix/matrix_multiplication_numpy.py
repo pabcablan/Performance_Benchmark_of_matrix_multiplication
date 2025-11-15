@@ -8,21 +8,6 @@ def matrix_multiply_numpy_builtin(A, B):
 def matrix_multiply_numpy_matmul(A, B):
     return np.array(A) @ np.array(B)
 
-
-def matrix_multiply_numpy_standard(A, B):
-    A_np = np.array(A)
-    B_np = np.array(B)
-    n = len(A_np)
-    C = np.zeros((n, n))
-    
-    for i in range(n):
-        for j in range(n):
-            for k in range(n):
-                C[i][j] += A_np[i][k] * B_np[k][j]
-    
-    return C
-
-
 def matrix_multiply_numpy_vectorized(A, B):
     A_np = np.array(A)
     B_np = np.array(B)
@@ -56,6 +41,8 @@ def matrix_multiply_tiled_numpy(A, B, block_size=32):
                 )
     
     return C
+
+
 def strassen_numpy(A, B):
     A = np.array(A)
     B = np.array(B)

@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-import python.matrix.matrix_multiplication_numpy as mm_np
-import python.matrix.matrix_utils as mu
+import python.src.matrix.densematrix.matrix_multiplication_numpy as mm_np
+import python.src.matrix.matrix_utils as mu
 
 
 class TestMatrixMultiplicationNumPy(unittest.TestCase):
@@ -17,10 +17,6 @@ class TestMatrixMultiplicationNumPy(unittest.TestCase):
 
     def test_numpy_matmul(self):
         result = mm_np.matrix_multiply_numpy_matmul(self.A, self.B)
-        np.testing.assert_array_almost_equal(result, self.expected)
-
-    def test_numpy_standard(self):
-        result = mm_np.matrix_multiply_numpy_standard(self.A, self.B)
         np.testing.assert_array_almost_equal(result, self.expected)
 
     def test_numpy_vectorized(self):
@@ -52,13 +48,11 @@ class TestMatrixMultiplicationNumPy(unittest.TestCase):
 
         result_builtin = mm_np.matrix_multiply_numpy_builtin(A, B)
         result_matmul = mm_np.matrix_multiply_numpy_matmul(A, B)
-        result_standard = mm_np.matrix_multiply_numpy_standard(A, B)
         result_vectorized = mm_np.matrix_multiply_numpy_vectorized(A, B)
         result_tiled = mm_np.matrix_multiply_tiled_numpy(A, B)
         result_strassen = mm_np.strassen_numpy(A, B)
 
         np.testing.assert_array_almost_equal(result_builtin, result_matmul, decimal=10)
-        np.testing.assert_array_almost_equal(result_builtin, result_standard, decimal=10)
         np.testing.assert_array_almost_equal(result_builtin, result_vectorized, decimal=10)
         np.testing.assert_array_almost_equal(result_builtin, result_tiled, decimal=10)
         np.testing.assert_array_almost_equal(result_builtin, result_strassen, decimal=10)

@@ -1,6 +1,6 @@
 import unittest
-import python.matrix.matrix_multiplication as mm
-import python.matrix.matrix_utils as mu
+import python.src.matrix.densematrix.matrix_multiplication as mm
+import python.src.matrix.matrix_utils as mu
 
 class TestMatrixMultiplication(unittest.TestCase):
 
