@@ -1,3 +1,6 @@
+import random
+
+
 class SparseMatrixCSR:
     
     def __init__(self, values, col_index, row_ptr, shape):
@@ -5,6 +8,42 @@ class SparseMatrixCSR:
         self.col_index = col_index
         self.row_ptr = row_ptr
         self.shape = shape
+    
+    @classmethod
+    def from_dense(cls, dense_matrix):
+        if not dense_matrix or not dense_matrix[0]:
+            return cls([], [], [0], (0, 0))
+        
+        values = []
+        col_index = []
+        row_ptr = [0]
+        
+        n_rows = len(dense_matrix)
+        n_cols = len(dense_matrix[0])
+        
+        for i in range(n_rows):
+            for j in range(n_cols):
+                if dense_matrix[i][j] != 0:
+                    values.append(dense_matrix[i][j])
+                    col_index.append(j)
+            row_ptr.append(len(values))
+        
+        return cls(values, col_index, row_ptr, (n_rows, n_cols))
+    
+    @classmethod
+    def random(cls, n, sparsity=0.9):
+        values = []
+        col_index = []
+        row_ptr = [0]
+        
+        for i in range(n):
+            for j in range(n):
+                if random.random() > sparsity:
+                    values.append(random.random())
+                    col_index.append(j)
+            row_ptr.append(len(values))
+        
+        return cls(values, col_index, row_ptr, (n, n))
     
     def multiply(self, other):
         if self.shape[1] != other.shape[0]:
@@ -41,9 +80,9 @@ class SparseMatrixCSR:
         
         return SparseMatrixCSR(values, col_index, row_ptr, (n_rows, n_cols))
     
-    def nnz(self):
+    def numbers_non_zero(self):
         return len(self.values)
     
     def get_sparsity(self):
         total = self.shape[0] * self.shape[1]
-        return (total - self.nnz()) / total if total > 0 else 0
+        return (total - self.numbers_non_zero()) / total if total > 0 else 0
