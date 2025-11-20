@@ -13,7 +13,7 @@ def get_process_memory_mb():
 
 
 def run_benchmark(algorithm_name, multiply_func, generate_func, sizes, runs, writer):
-    print(f"Benchmarking: {algorithm_name}")
+    print(f"\nBenchmarking: {algorithm_name}")
     
     for size in sizes:
         print(f"Size {size}×{size}...", end=' ')
@@ -74,7 +74,7 @@ if __name__ == "__main__":
         sys.exit(1)
     
     sizes = [64, 128, 256, 512, 1024, 2048]
-    runs = 1
+    runs = 3
     
     output_directory = sys.argv[1]
     os.makedirs(output_directory, exist_ok=True)
