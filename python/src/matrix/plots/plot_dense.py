@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -84,7 +85,6 @@ def plot_comparison(df, output_dir):
 def plot_memory(df, output_dir):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
     
-    # Panel izquierdo: Python Puro
     python_algos = ['Standard', 'Row-Oriented', 'Tiled-64', 'Strassen']
     for algo in python_algos:
         subset = df[df['Algorithm'] == algo]
@@ -103,7 +103,6 @@ def plot_memory(df, output_dir):
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     
-    # Panel derecho: NumPy
     numpy_algos = ['NumPy-builtin', 'NumPy-matmul', 'NumPy-Tiled-64', 'NumPy-Strassen']
     for algo in numpy_algos:
         subset = df[df['Algorithm'] == algo]
@@ -134,7 +133,6 @@ if __name__ == "__main__":
     csv_file = sys.argv[1]
     output_dir = sys.argv[2]
     
-    import os
     os.makedirs(output_dir, exist_ok=True)
     
     print(f"\nGenerating plots from: {csv_file}")
