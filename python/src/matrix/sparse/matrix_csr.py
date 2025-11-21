@@ -80,6 +80,17 @@ class SparseMatrixCSR:
         
         return SparseMatrixCSR(values, col_index, row_ptr, (n_rows, n_cols))
     
+    def to_dense(self):
+        n_rows, n_cols = self.shape
+        dense = [[0] * n_cols for _ in range(n_rows)]
+        
+        for i in range(n_rows):
+            for idx in range(self.row_ptr[i], self.row_ptr[i + 1]):
+                j = self.col_index[idx]
+                dense[i][j] = self.values[idx]
+        
+        return dense
+
     def numbers_non_zero(self):
         return len(self.values)
     
