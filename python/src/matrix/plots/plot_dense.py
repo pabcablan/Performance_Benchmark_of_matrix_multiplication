@@ -33,7 +33,7 @@ def plot_python_pure(df, output_dir):
     plt.legend()
     plt.grid(True, which="both", ls="-", alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f'{output_dir}/python_pure_time.png', dpi=300)
+    plt.savefig(f'{output_dir}/python_pure_time_dense.png', dpi=300)
     plt.close()
 
 def plot_numpy(df, output_dir):
@@ -55,7 +55,7 @@ def plot_numpy(df, output_dir):
     plt.legend()
     plt.grid(True, which="both", ls="-", alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f'{output_dir}/numpy_time.png', dpi=300)
+    plt.savefig(f'{output_dir}/numpy_time_dense.png', dpi=300)
     plt.close()
 
 def plot_comparison(df, output_dir):
@@ -79,7 +79,7 @@ def plot_comparison(df, output_dir):
     plt.legend()
     plt.grid(True, axis='y', alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f'{output_dir}/python_vs_numpy.png', dpi=300)
+    plt.savefig(f'{output_dir}/python_vs_numpy_dense.png', dpi=300)
     plt.close()
 
 def plot_memory(df, output_dir):
@@ -122,7 +122,7 @@ def plot_memory(df, output_dir):
     ax2.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(f'{output_dir}/memory_comparison.png', dpi=300)
+    plt.savefig(f'{output_dir}/memory_comparison_dense.png', dpi=300)
     plt.close()
 
 if __name__ == "__main__":
