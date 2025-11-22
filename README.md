@@ -190,10 +190,10 @@ python python/test/matrix/sparse/test_mc2depy_matrix.py
 cd python
 
 # Dense plots (4 figures)
-python src/matrix/plots/plot_dense.py <plot_directory>
+python src/matrix/plots/plot_dense.py <dense_csv_path> <plot_directory>
 
 # Sparse plots (3 figures)
-python src/matrix/plots/plot_sparse.py <plot_directory>
+python src/matrix/plots/plot_sparse.py <sparse_csv_path> <plot_directory>
 ```
 
 **Generated Plots:**
