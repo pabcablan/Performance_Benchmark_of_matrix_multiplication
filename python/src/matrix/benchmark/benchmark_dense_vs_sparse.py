@@ -82,10 +82,10 @@ def run_benchmark(size, sparsity, runs, writer):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python benchmark_dense_vs_sparse.py <output_directory>")
-        print("Example: python benchmark_dense_vs_sparse.py output/")
+        print("Example: python benchmark_dense_vs_sparse.py results/")
         sys.exit(1)
     
-    sizes = [128, 256, 512]
+    sizes = [64, 128, 256, 512, 1024, 2048]
     sparsities = [0.5, 0.7, 0.9, 0.95, 0.99]
     runs = 3
     
