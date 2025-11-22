@@ -206,7 +206,7 @@ python src/matrix/plots/plot_sparse.py <sparse_csv_path> <plot_directory>
 6. **sparse_scipy_analysis.png** - SciPy: Time vs Sparsity + Size
 7. **sparse_comparison.png** - CSR-Pure vs SciPy at 90% sparsity
 
-**All plots are saved to `<plots_directory>`**
+**All plots are saved to `<plot_directory>`**
 
 
 ## 🧪 Testing
